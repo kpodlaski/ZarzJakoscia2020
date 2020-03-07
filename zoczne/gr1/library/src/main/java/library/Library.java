@@ -8,6 +8,12 @@ import java.util.List;
 public class Library {
     private List<Book> books = new ArrayList<Book>();
 
+    /*
+        check if  BookDetails is unique, if not use existing one
+        check if id exists in library if so return false and do not add the book
+        check if book has not empty list of authors
+        check if authors have not empty name/surname
+     */
     public boolean addBook(Book book){
         //TODO
         books.add(book);
