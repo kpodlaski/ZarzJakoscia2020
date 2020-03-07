@@ -12,6 +12,7 @@ public class LibraryTest {
 
     @org.junit.Before
     public void setUp() throws Exception {
+        this.lib = new Library();
         Author a = new Author("Stanisław", "Lem");
         BookDetails bd = new BookDetails(a, "Solaris");
         Book b = new Book(bd,1);
