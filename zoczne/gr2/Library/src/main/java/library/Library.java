@@ -16,6 +16,7 @@ public class Library {
      */
     public boolean addBook(Book book){
         //TODO
+        //books.add(book);
         return false;
     }
 
@@ -23,8 +24,14 @@ public class Library {
         return null if book do not exist in list books
      */
     public Book getBookById(int id){
-        //TODO
-        return null;
+        Book book = null;
+        for (Book b : books){
+            if (b.getId() == id){
+                book = b;
+                break;
+            }
+        }
+        return book;
     }
 
     public  List<Book> getBooksByAuthor(String name, String surname){

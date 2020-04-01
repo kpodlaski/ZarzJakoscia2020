@@ -4,6 +4,9 @@ import library.model.Author;
 import library.model.Book;
 import library.model.BookDetails;
 
+import java.lang.reflect.Field;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class LibraryTest {
@@ -17,12 +20,17 @@ public class LibraryTest {
                 "Pan Tadeusz"
         );
         Book b = new Book(1, bd);
-        library.addBook(b);
-        library.addBook(new Book(2,bd));
+        Field booksField = library.getClass().getDeclaredField("books");
+        booksField.setAccessible(true);
+        List<Book> books = (List<Book>) booksField.get(library);
+        //library.addBook(b);
+        books.add(b);
+        books.add(new Book(2,bd));
         bd = new BookDetails(
                 new Author("Henryk","Sienkiewicz"),
                 "Krzyżacy");
-        library.addBook(new Book(3,bd));
+        books.add(new Book(3,bd));
+        booksField.setAccessible(false);
     }
 
     @org.junit.After
