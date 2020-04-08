@@ -1,0 +1,30 @@
+paymentIn :
+
+1.
+TEST CASE: Successful Payment
+Description:
+Some User payin to an account 200;
+Restrictions:
+Account exists,
+No restriction on the user or account
+Expected Outcome:
+Operation is successfull,
+the amount on the account is increased by 200,
+to database method updates proper account
+Operation is Logged in the system
+The log obtain proper information about:
+    operation (user, account, ammount, description),
+    and result
+function returns true.
+
+2.
+TEST CASE: PaymentIn on non-existing account
+Description:
+Some User payin to an account 200;
+Restrictions:
+Account do not exists,
+Outcome:
+No operation on any account in the system,
+No changes in database
+Function returns false,
+

@@ -1,6 +1,6 @@
 package biz;
 
-import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
+
 import db.dao.DAO;
 import model.Operation;
 import model.Password;
@@ -15,6 +15,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.Arrays;
+import java.util.Base64;
+
 
 /**
  * Created by Krzysztof Podlaski on 04.03.2018.
@@ -63,7 +65,8 @@ public class AuthenticationManager {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
             bpass = Charset.forName("UTF-8").encode(cBuffer).array();
             byte[] encodedhash = digest.digest(bpass);
-            result = Base64.encode(encodedhash);
+            //Modyfikacja ze względu na zmianę biblioteki
+            result = Base64.getEncoder().encodeToString(encodedhash);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }

@@ -6,7 +6,8 @@ import model.Operation;
 import model.User;
 import model.operations.LogIn;
 import model.operations.LogOut;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import org.apache.commons.lang3.NotImplementedException;
+
 
 import java.sql.SQLException;
 
